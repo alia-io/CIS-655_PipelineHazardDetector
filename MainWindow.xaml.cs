@@ -18,11 +18,14 @@ namespace PipelineHazardDetector
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
+    public partial class MainWindow : Window {
+        public MainWindow() {
             InitializeComponent();
+        }
+
+        // from https://www.tutorialspoint.com/xaml/xaml_event_handling.htm
+        private void OnClick(object sender, RoutedEventArgs e) {
+            MessageBox.Show("Clicked!");
         }
     }
 }

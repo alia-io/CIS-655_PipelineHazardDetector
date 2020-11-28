@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PipelineHazardDetector"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="400" Width="600">
     <Grid>
-        
+        <TextBox HorizontalAlignment="Left" Height="100" Width="425" Margin="10,260,0,0" TextWrapping="Wrap" Text="Type instruction sequence here..." VerticalAlignment="Top"  RenderTransformOrigin="0.512,1.415" FontSize="10"/>
+        <Button Content="Display With Hazards" HorizontalAlignment="Left" Margin="445,270,0,0" VerticalAlignment="Top" Width="135" Height="20" FontSize="10" Click="OnClick"/>
+        <Button Content="Display Without Forwarding" HorizontalAlignment="Left" Margin="445,300,0,0" VerticalAlignment="Top" Width="135" Height="20" FontSize="10" Click="OnClick"/>
+        <Button Content="Display With Forwarding" HorizontalAlignment="Left" Margin="445,330,0,0" VerticalAlignment="Top" Width="135" Height="20" FontSize="10" Click="OnClick"/>
     </Grid>
 </Window>
