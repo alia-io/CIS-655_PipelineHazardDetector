@@ -23,9 +23,23 @@ namespace PipelineHazardDetector
             InitializeComponent();
         }
 
-        // from https://www.tutorialspoint.com/xaml/xaml_event_handling.htm
-        private void OnClick(object sender, RoutedEventArgs e) {
-            MessageBox.Show("Clicked!");
+        private void DisplayWithHazardsOnClick(object sender, RoutedEventArgs e) {
+            String instructionSequence = InstructionSequence.Text;
+            //MessageBox.Show("Display With Hazards: " + instructionSequence);
         }
+
+        private void DisplayWithoutForwardingOnClick(object sender, RoutedEventArgs e) {
+            String instructionSequence = InstructionSequence.Text;
+            //TextBox textBox = new TextBox();
+            //textBox.Text = "Test";
+            //PipelineDisplay.Children.Add(textBox);
+            //MessageBox.Show("Display Without Forwarding: " + instructionSequence);
+        }
+
+        private void DisplayWithForwardingOnClick(object sender, RoutedEventArgs e) {
+            String instructionSequence = InstructionSequence.Text;
+            //MessageBox.Show("Display With Forwarding: " + instructionSequence);
+        }
+
     }
 }
