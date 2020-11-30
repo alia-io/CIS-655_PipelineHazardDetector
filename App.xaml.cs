@@ -19,7 +19,7 @@ namespace PipelineHazardDetector {
     public partial class App : Application {
 
         // pipelineType: 1 = with hazards, 2 = without forwarding, 3 = with forwarding
-        public static void ParseInstructions(String input, int pipelineType) {
+        public static Pipeline ParseInstructions(String input, int pipelineType) {
 
             // Separate each instruction
             String[] instructionArray = input.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
@@ -50,7 +50,7 @@ namespace PipelineHazardDetector {
             }
 
 
-
+            return new Pipeline(instructions);
         }
     }
 
@@ -206,18 +206,27 @@ namespace PipelineHazardDetector {
 
     public class Pipeline {
 
-        int[] instruction1 = {0, 0, 0, 0, 0};
-        int[] instruction2 = {0, 0, 0, 0, 0};
-        int[] instruction3 = {0, 0, 0, 0, 0};
-        int[] instruction4 = {0, 0, 0, 0, 0};
-        int[] instruction5 = {0, 0, 0, 0, 0};
-        int[] instruction6 = {0, 0, 0, 0, 0};
-        int[] instruction7 = {0, 0, 0, 0, 0};
+        int[,] pipelinedInstructions = new int[7, 5];
 
         public Pipeline(List<Instruction> instructions) {
-
+            int instructionStart = 0;
+            for (int i = 0; i < 7; i++) {
+                instructionStart++;
+                if (i < instructions.Count) {
+                    for (int j = 0; j < 5; j++) {
+                        pipelinedInstructions[i, j] = instructionStart + j;
+                    }
+                } else {
+                    for (int j = 0; j < 5; j++) {
+                        pipelinedInstructions[i, j] = 0;
+                    }
+                }
+            }
         }
 
+        public int[,] GetPipelinedInstructions() {
+            return pipelinedInstructions;
+        }
     }
 
 }
