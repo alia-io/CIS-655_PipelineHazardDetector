@@ -25,11 +25,13 @@ namespace PipelineHazardDetector
 
         private void DisplayWithHazardsOnClick(object sender, RoutedEventArgs e) {
             String instructionSequence = InstructionSequence.Text;
+            App.ParseInstructions(instructionSequence, 1);
             //MessageBox.Show("Display With Hazards: " + instructionSequence);
         }
 
         private void DisplayWithoutForwardingOnClick(object sender, RoutedEventArgs e) {
             String instructionSequence = InstructionSequence.Text;
+            App.ParseInstructions(instructionSequence, 2);
             //TextBox textBox = new TextBox();
             //textBox.Text = "Test";
             //PipelineDisplay.Children.Add(textBox);
@@ -38,6 +40,7 @@ namespace PipelineHazardDetector
 
         private void DisplayWithForwardingOnClick(object sender, RoutedEventArgs e) {
             String instructionSequence = InstructionSequence.Text;
+            App.ParseInstructions(instructionSequence, 3);
             //MessageBox.Show("Display With Forwarding: " + instructionSequence);
         }
 

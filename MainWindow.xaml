@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Pipeline Display and Hazard Detector" Height="600" Width="900">
     <Grid>
-        <TextBox Name="InstructionSequence" HorizontalAlignment="Left" Height="150" Width="580" Margin="20,400,0,0" TextWrapping="Wrap" Text="Type instruction sequence here..." VerticalAlignment="Top"  RenderTransformOrigin="0.512,1.415" FontSize="18"/>
+        <TextBox Name="InstructionSequence" HorizontalAlignment="Left" Height="150" Width="580" Margin="20,400,0,0" TextWrapping="Wrap" Text="Type instruction sequence here..." VerticalAlignment="Top"  RenderTransformOrigin="0.512,1.415" FontSize="18" AcceptsReturn="True"/>
         <Button Content="Display With Hazards" HorizontalAlignment="Left" Margin="630,420,0,0" VerticalAlignment="Top" Width="240" Height="30" FontSize="18" Click="DisplayWithHazardsOnClick"/>
         <Button Content="Display Without Forwarding" HorizontalAlignment="Left" Margin="630,460,0,0" VerticalAlignment="Top" Width="240" Height="30" FontSize="18" Click="DisplayWithoutForwardingOnClick"/>
         <Button Content="Display With Forwarding" HorizontalAlignment="Left" Margin="630,500,0,0" VerticalAlignment="Top" Width="240" Height="30" FontSize="18" Click="DisplayWithForwardingOnClick"/>
