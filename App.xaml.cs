@@ -49,6 +49,8 @@ namespace PipelineHazardDetector {
                 instructions.Add(currentInstruction); // add instruction to parsed instructions list
             }
 
+
+
         }
     }
 
@@ -198,6 +200,22 @@ namespace PipelineHazardDetector {
             this.earlierInstructionNumber = earlierInstructionNumber;
             this.laterInstructionNumber = laterInstructionNumber;
             this.sourceRegisterNumber = sourceRegisterNumber;
+        }
+
+    }
+
+    public class Pipeline {
+
+        int[] instruction1 = {0, 0, 0, 0, 0};
+        int[] instruction2 = {0, 0, 0, 0, 0};
+        int[] instruction3 = {0, 0, 0, 0, 0};
+        int[] instruction4 = {0, 0, 0, 0, 0};
+        int[] instruction5 = {0, 0, 0, 0, 0};
+        int[] instruction6 = {0, 0, 0, 0, 0};
+        int[] instruction7 = {0, 0, 0, 0, 0};
+
+        public Pipeline(List<Instruction> instructions) {
+
         }
 
     }

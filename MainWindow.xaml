@@ -5,15 +5,224 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PipelineHazardDetector"
         mc:Ignorable="d"
-        Title="Pipeline Display and Hazard Detector" Height="600" Width="900">
+        Title="Pipeline Display and Hazard Detector" Height="600" Width="1200">
     <Grid>
-        <TextBox Name="InstructionSequence" HorizontalAlignment="Left" Height="150" Width="580" Margin="20,400,0,0" TextWrapping="Wrap" Text="Type instruction sequence here..." VerticalAlignment="Top"  RenderTransformOrigin="0.512,1.415" FontSize="18" AcceptsReturn="True"/>
-        <Button Content="Display With Hazards" HorizontalAlignment="Left" Margin="630,420,0,0" VerticalAlignment="Top" Width="240" Height="30" FontSize="18" Click="DisplayWithHazardsOnClick"/>
-        <Button Content="Display Without Forwarding" HorizontalAlignment="Left" Margin="630,460,0,0" VerticalAlignment="Top" Width="240" Height="30" FontSize="18" Click="DisplayWithoutForwardingOnClick"/>
-        <Button Content="Display With Forwarding" HorizontalAlignment="Left" Margin="630,500,0,0" VerticalAlignment="Top" Width="240" Height="30" FontSize="18" Click="DisplayWithForwardingOnClick"/>
-        <Grid Name="PipelineDisplay" HorizontalAlignment="Left" Height="350" Width="850" Margin="20,25,0,0" VerticalAlignment="Top">
-            <Label Content="Instruction:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="35" Width="110" FontSize="18" FontWeight="Bold"/>
-            <Label Content="Clock Cycles:" HorizontalAlignment="Left" Margin="400,10,0,0" VerticalAlignment="Top" Height="35" Width="120" FontSize="18" FontWeight="Bold"/>
+        <TextBox Name="InstructionSequence" HorizontalAlignment="Left" Height="150" Width="580" Margin="190,400,0,0" TextWrapping="Wrap" Text="Type instruction sequence here..." VerticalAlignment="Top"  RenderTransformOrigin="0.512,1.415" FontSize="18" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+        <Button Content="Display With Hazards" HorizontalAlignment="Left" Margin="800,420,0,0" VerticalAlignment="Top" Width="240" Height="30" FontSize="18" Click="DisplayWithHazardsOnClick"/>
+        <Button Content="Display Without Forwarding" HorizontalAlignment="Left" Margin="800,460,0,0" VerticalAlignment="Top" Width="240" Height="30" FontSize="18" Click="DisplayWithoutForwardingOnClick"/>
+        <Button Content="Display With Forwarding" HorizontalAlignment="Left" Margin="800,500,0,0" VerticalAlignment="Top" Width="240" Height="30" FontSize="18" Click="DisplayWithForwardingOnClick"/>
+        <Grid Name="PipelineDisplay" HorizontalAlignment="Left" Height="365" Width="1160" Margin="15,20,0,0" VerticalAlignment="Top">
+            
+            <Label Content="Instructions:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18" FontWeight="Bold"/>
+            <Label Name="Instruction1"  Content="" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
+            <Label Name="Instruction2" Content="" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
+            <Label Name="Instruction3" Content="" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
+            <Label Name="Instruction4" Content="" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
+            <Label Name="Instruction5" Content="" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
+            <Label Name="Instruction6" Content="" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
+            <Label Name="Instruction7" Content="" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
+            
+            <Label Content="Clock Cycles:" HorizontalAlignment="Left" Margin="600,5,0,0" VerticalAlignment="Top" Height="35" Width="120" FontSize="18" FontWeight="Bold"/>
+            <Label Content=" 1" HorizontalAlignment="Left" Margin="200,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content=" 2" HorizontalAlignment="Left" Margin="240,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content=" 3" HorizontalAlignment="Left" Margin="280,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content=" 4" HorizontalAlignment="Left" Margin="320,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content=" 5" HorizontalAlignment="Left" Margin="360,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content=" 6" HorizontalAlignment="Left" Margin="400,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content=" 7" HorizontalAlignment="Left" Margin="440,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content=" 8" HorizontalAlignment="Left" Margin="480,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content=" 9" HorizontalAlignment="Left" Margin="520,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="10" HorizontalAlignment="Left" Margin="560,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="11" HorizontalAlignment="Left" Margin="600,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="12" HorizontalAlignment="Left" Margin="640,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="13" HorizontalAlignment="Left" Margin="680,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="14" HorizontalAlignment="Left" Margin="720,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="15" HorizontalAlignment="Left" Margin="760,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="16" HorizontalAlignment="Left" Margin="800,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="17" HorizontalAlignment="Left" Margin="840,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="18" HorizontalAlignment="Left" Margin="880,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="19" HorizontalAlignment="Left" Margin="920,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="20" HorizontalAlignment="Left" Margin="960,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="21" HorizontalAlignment="Left" Margin="1000,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="22" HorizontalAlignment="Left" Margin="1040,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="23" HorizontalAlignment="Left" Margin="1080,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+            <Label Content="24" HorizontalAlignment="Left" Margin="1120,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+
+            <Label Name="A01" Content="" HorizontalAlignment="Left" Margin="200,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A02" Content="" HorizontalAlignment="Left" Margin="240,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A03" Content="" HorizontalAlignment="Left" Margin="280,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A04" Content="" HorizontalAlignment="Left" Margin="320,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A05" Content="" HorizontalAlignment="Left" Margin="360,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A06" Content="" HorizontalAlignment="Left" Margin="400,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A07" Content="" HorizontalAlignment="Left" Margin="440,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A08" Content="" HorizontalAlignment="Left" Margin="480,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A09" Content="" HorizontalAlignment="Left" Margin="520,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A10" Content="" HorizontalAlignment="Left" Margin="560,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A11" Content="" HorizontalAlignment="Left" Margin="600,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A12" Content="" HorizontalAlignment="Left" Margin="640,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A13" Content="" HorizontalAlignment="Left" Margin="680,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A14" Content="" HorizontalAlignment="Left" Margin="720,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A15" Content="" HorizontalAlignment="Left" Margin="760,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A16" Content="" HorizontalAlignment="Left" Margin="800,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A17" Content="" HorizontalAlignment="Left" Margin="840,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A18" Content="" HorizontalAlignment="Left" Margin="880,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A19" Content="" HorizontalAlignment="Left" Margin="920,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A20" Content="" HorizontalAlignment="Left" Margin="960,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A21" Content="" HorizontalAlignment="Left" Margin="1000,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A22" Content="" HorizontalAlignment="Left" Margin="1040,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A23" Content="" HorizontalAlignment="Left" Margin="1080,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="A24" Content="" HorizontalAlignment="Left" Margin="1120,80,0,0" VerticalAlignment="Top" FontSize="18"/>
+            
+            <Label Name="B01" Content="" HorizontalAlignment="Left" Margin="200,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B02" Content="" HorizontalAlignment="Left" Margin="240,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B03" Content="" HorizontalAlignment="Left" Margin="280,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B04" Content="" HorizontalAlignment="Left" Margin="320,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B05" Content="" HorizontalAlignment="Left" Margin="360,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B06" Content="" HorizontalAlignment="Left" Margin="400,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B07" Content="" HorizontalAlignment="Left" Margin="440,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B08" Content="" HorizontalAlignment="Left" Margin="480,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B09" Content="" HorizontalAlignment="Left" Margin="520,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B10" Content="" HorizontalAlignment="Left" Margin="560,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B11" Content="" HorizontalAlignment="Left" Margin="600,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B12" Content="" HorizontalAlignment="Left" Margin="640,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B13" Content="" HorizontalAlignment="Left" Margin="680,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B14" Content="" HorizontalAlignment="Left" Margin="720,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B15" Content="" HorizontalAlignment="Left" Margin="760,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B16" Content="" HorizontalAlignment="Left" Margin="800,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B17" Content="" HorizontalAlignment="Left" Margin="840,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B18" Content="" HorizontalAlignment="Left" Margin="880,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B19" Content="" HorizontalAlignment="Left" Margin="920,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B20" Content="" HorizontalAlignment="Left" Margin="960,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B21" Content="" HorizontalAlignment="Left" Margin="1000,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B22" Content="" HorizontalAlignment="Left" Margin="1040,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B23" Content="" HorizontalAlignment="Left" Margin="1080,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="B24" Content="" HorizontalAlignment="Left" Margin="1120,120,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+            <Label Name="C01" Content="" HorizontalAlignment="Left" Margin="200,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C02" Content="" HorizontalAlignment="Left" Margin="240,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C03" Content="" HorizontalAlignment="Left" Margin="280,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C04" Content="" HorizontalAlignment="Left" Margin="320,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C05" Content="" HorizontalAlignment="Left" Margin="360,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C06" Content="" HorizontalAlignment="Left" Margin="400,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C07" Content="" HorizontalAlignment="Left" Margin="440,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C08" Content="" HorizontalAlignment="Left" Margin="480,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C09" Content="" HorizontalAlignment="Left" Margin="520,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C10" Content="" HorizontalAlignment="Left" Margin="560,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C11" Content="" HorizontalAlignment="Left" Margin="600,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C12" Content="" HorizontalAlignment="Left" Margin="640,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C13" Content="" HorizontalAlignment="Left" Margin="680,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C14" Content="" HorizontalAlignment="Left" Margin="720,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C15" Content="" HorizontalAlignment="Left" Margin="760,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C16" Content="" HorizontalAlignment="Left" Margin="800,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C17" Content="" HorizontalAlignment="Left" Margin="840,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C18" Content="" HorizontalAlignment="Left" Margin="880,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C19" Content="" HorizontalAlignment="Left" Margin="920,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C20" Content="" HorizontalAlignment="Left" Margin="960,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C21" Content="" HorizontalAlignment="Left" Margin="1000,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C22" Content="" HorizontalAlignment="Left" Margin="1040,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C23" Content="" HorizontalAlignment="Left" Margin="1080,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="C24" Content="" HorizontalAlignment="Left" Margin="1120,160,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+            <Label Name="D01" Content="" HorizontalAlignment="Left" Margin="200,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D02" Content="" HorizontalAlignment="Left" Margin="240,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D03" Content="" HorizontalAlignment="Left" Margin="280,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D04" Content="" HorizontalAlignment="Left" Margin="320,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D05" Content="" HorizontalAlignment="Left" Margin="360,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D06" Content="" HorizontalAlignment="Left" Margin="400,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D07" Content="" HorizontalAlignment="Left" Margin="440,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D08" Content="" HorizontalAlignment="Left" Margin="480,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D09" Content="" HorizontalAlignment="Left" Margin="520,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D10" Content="" HorizontalAlignment="Left" Margin="560,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D11" Content="" HorizontalAlignment="Left" Margin="600,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D12" Content="" HorizontalAlignment="Left" Margin="640,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D13" Content="" HorizontalAlignment="Left" Margin="680,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D14" Content="" HorizontalAlignment="Left" Margin="720,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D15" Content="" HorizontalAlignment="Left" Margin="760,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D16" Content="" HorizontalAlignment="Left" Margin="800,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D17" Content="" HorizontalAlignment="Left" Margin="840,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D18" Content="" HorizontalAlignment="Left" Margin="880,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D19" Content="" HorizontalAlignment="Left" Margin="920,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D20" Content="" HorizontalAlignment="Left" Margin="960,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D21" Content="" HorizontalAlignment="Left" Margin="1000,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D22" Content="" HorizontalAlignment="Left" Margin="1040,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D23" Content="" HorizontalAlignment="Left" Margin="1080,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="D24" Content="" HorizontalAlignment="Left" Margin="1120,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+            <Label Name="E01" Content="" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E02" Content="" HorizontalAlignment="Left" Margin="240,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E03" Content="" HorizontalAlignment="Left" Margin="280,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E04" Content="" HorizontalAlignment="Left" Margin="320,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E05" Content="" HorizontalAlignment="Left" Margin="360,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E06" Content="" HorizontalAlignment="Left" Margin="400,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E07" Content="" HorizontalAlignment="Left" Margin="440,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E08" Content="" HorizontalAlignment="Left" Margin="480,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E09" Content="" HorizontalAlignment="Left" Margin="520,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E10" Content="" HorizontalAlignment="Left" Margin="560,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E11" Content="" HorizontalAlignment="Left" Margin="600,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E12" Content="" HorizontalAlignment="Left" Margin="640,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E13" Content="" HorizontalAlignment="Left" Margin="680,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E14" Content="" HorizontalAlignment="Left" Margin="720,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E15" Content="" HorizontalAlignment="Left" Margin="760,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E16" Content="" HorizontalAlignment="Left" Margin="800,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E17" Content="" HorizontalAlignment="Left" Margin="840,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E18" Content="" HorizontalAlignment="Left" Margin="880,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E19" Content="" HorizontalAlignment="Left" Margin="920,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E20" Content="" HorizontalAlignment="Left" Margin="960,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E21" Content="" HorizontalAlignment="Left" Margin="1000,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E22" Content="" HorizontalAlignment="Left" Margin="1040,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E23" Content="" HorizontalAlignment="Left" Margin="1080,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="E24" Content="" HorizontalAlignment="Left" Margin="1120,240,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+            <Label Name="F01" Content="" HorizontalAlignment="Left" Margin="200,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F02" Content="" HorizontalAlignment="Left" Margin="240,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F03" Content="" HorizontalAlignment="Left" Margin="280,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F04" Content="" HorizontalAlignment="Left" Margin="320,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F05" Content="" HorizontalAlignment="Left" Margin="360,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F06" Content="" HorizontalAlignment="Left" Margin="400,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F07" Content="" HorizontalAlignment="Left" Margin="440,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F08" Content="" HorizontalAlignment="Left" Margin="480,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F09" Content="" HorizontalAlignment="Left" Margin="520,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F10" Content="" HorizontalAlignment="Left" Margin="560,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F11" Content="" HorizontalAlignment="Left" Margin="600,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F12" Content="" HorizontalAlignment="Left" Margin="640,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F13" Content="" HorizontalAlignment="Left" Margin="680,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F14" Content="" HorizontalAlignment="Left" Margin="720,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F15" Content="" HorizontalAlignment="Left" Margin="760,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F16" Content="" HorizontalAlignment="Left" Margin="800,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F17" Content="" HorizontalAlignment="Left" Margin="840,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F18" Content="" HorizontalAlignment="Left" Margin="880,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F19" Content="" HorizontalAlignment="Left" Margin="920,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F20" Content="" HorizontalAlignment="Left" Margin="960,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F21" Content="" HorizontalAlignment="Left" Margin="1000,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F22" Content="" HorizontalAlignment="Left" Margin="1040,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F23" Content="" HorizontalAlignment="Left" Margin="1080,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="F24" Content="" HorizontalAlignment="Left" Margin="1120,280,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+            <Label Name="G01" Content="" HorizontalAlignment="Left" Margin="200,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G02" Content="" HorizontalAlignment="Left" Margin="240,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G03" Content="" HorizontalAlignment="Left" Margin="280,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G04" Content="" HorizontalAlignment="Left" Margin="320,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G05" Content="" HorizontalAlignment="Left" Margin="360,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G06" Content="" HorizontalAlignment="Left" Margin="400,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G07" Content="" HorizontalAlignment="Left" Margin="440,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G08" Content="" HorizontalAlignment="Left" Margin="480,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G09" Content="" HorizontalAlignment="Left" Margin="520,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G10" Content="" HorizontalAlignment="Left" Margin="560,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G11" Content="" HorizontalAlignment="Left" Margin="600,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G12" Content="" HorizontalAlignment="Left" Margin="640,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G13" Content="" HorizontalAlignment="Left" Margin="680,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G14" Content="" HorizontalAlignment="Left" Margin="720,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G15" Content="" HorizontalAlignment="Left" Margin="760,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G16" Content="" HorizontalAlignment="Left" Margin="800,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G17" Content="" HorizontalAlignment="Left" Margin="840,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G18" Content="" HorizontalAlignment="Left" Margin="880,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G19" Content="" HorizontalAlignment="Left" Margin="920,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G20" Content="" HorizontalAlignment="Left" Margin="960,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G21" Content="" HorizontalAlignment="Left" Margin="1000,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G22" Content="" HorizontalAlignment="Left" Margin="1040,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G23" Content="" HorizontalAlignment="Left" Margin="1080,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Name="G24" Content="" HorizontalAlignment="Left" Margin="1120,320,0,0" VerticalAlignment="Top" FontSize="18"/>
+
         </Grid>
     </Grid>
 </Window>
