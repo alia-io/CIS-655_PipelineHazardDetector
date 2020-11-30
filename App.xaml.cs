@@ -50,7 +50,7 @@ namespace PipelineHazardDetector {
             }
 
 
-            return new Pipeline(instructions);
+            return new Pipeline(instructionArray, instructions);
         }
     }
 
@@ -206,10 +206,16 @@ namespace PipelineHazardDetector {
 
     public class Pipeline {
 
+        String[] instructionArray;
         int[,] pipelinedInstructions = new int[7, 5];
 
-        public Pipeline(List<Instruction> instructions) {
-            int instructionStart = 0;
+        public Pipeline(String[] instructionArray, List<Instruction> instructions) {
+
+            int instructionStart;
+
+            this.instructionArray = instructionArray;
+            
+            instructionStart = 0;
             for (int i = 0; i < 7; i++) {
                 instructionStart++;
                 if (i < instructions.Count) {
@@ -222,6 +228,10 @@ namespace PipelineHazardDetector {
                     }
                 }
             }
+        }
+
+        public String[] GetInstructionArray() {
+            return this.instructionArray;
         }
 
         public int[,] GetPipelinedInstructions() {

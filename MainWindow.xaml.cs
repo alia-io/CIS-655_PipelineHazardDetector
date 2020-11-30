@@ -29,9 +29,23 @@ namespace PipelineHazardDetector {
         private void DisplayWithHazardsOnClick(object sender, RoutedEventArgs e) {
             String instructionSequence = InstructionSequence.Text;
             Pipeline pipeline = App.ParseInstructions(instructionSequence, 1);
+            String[] instructionArray = pipeline.GetInstructionArray();
             int[,] pipelinedInstructions = pipeline.GetPipelinedInstructions();
 
             for (int i = 0; i < 7; i++) {
+
+                if (i < instructionArray.Length) {
+                    switch (i) {
+                        case 0: Instruction1.Content = instructionArray[i]; break;
+                        case 1: Instruction2.Content = instructionArray[i]; break;
+                        case 2: Instruction3.Content = instructionArray[i]; break;
+                        case 3: Instruction4.Content = instructionArray[i]; break;
+                        case 4: Instruction5.Content = instructionArray[i]; break;
+                        case 5: Instruction6.Content = instructionArray[i]; break;
+                        case 6: Instruction7.Content = instructionArray[i]; break;
+                    }
+                }
+
                 for (int j = 0; j < 5; j++) {
                     if (pipelinedInstructions[i, j] != 0) {
                         String labelName = ConvertToLabelName(i + 1, pipelinedInstructions[i, j]);
@@ -47,6 +61,7 @@ namespace PipelineHazardDetector {
                         }
                     }
                 }
+
             }
         }
 
