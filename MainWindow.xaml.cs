@@ -16,29 +16,6 @@ using System.Windows.Shapes;
 
 namespace PipelineHazardDetector {
 
-    // from https://melodiouscode.net/wpf-xaml-visibility-binding-with-property-value-comparison/
-    [ValueConversion(typeof(bool), typeof(Visibility))]
-    public class ComparisonToVisibleConverter : IValueConverter {
-        
-        #region interface implementations
-
-	    public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
-		    try {
-			    string inputParameter = parameter?.ToString() ?? "";
-			    IEnumerable<string> paramList = inputParameter.Contains("||") ? inputParameter.Split(new[] {"||"}, StringSplitOptions.None) : new[] {inputParameter};
-			    return paramList.Any(param => string.Equals(value?.ToString(), param)) ? Visibility.Visible : Visibility.Collapsed;
-		    } catch {
-			    return Visibility.Visible;
-		    }
-	    }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
-		    return value?.ToString() != Visibility.Collapsed.ToString();
-	    }
-
-        #endregion
-    }
-
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>

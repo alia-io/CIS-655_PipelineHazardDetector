@@ -39,12 +39,15 @@ namespace PipelineHazardDetector {
                 bool source1Dependence = false;
                 bool source2Dependence = false;
                 for (int j = instructions.Count - 1; j >= 0; j--) {
+                    if ((InstructionType) instructions[j].GetInstructionType() == InstructionType.store) { // no hazards with store
+                        continue;
+                    }
                     if (!source1Dependence && instructions[j].GetDestination().Equals(currentInstruction.GetSource1())) {
-                        dataDependences.Add(new DataDependence(pipelineType, (InstructionType) instructions[j].GetInstructionType(), (InstructionType) currentInstruction.GetInstructionType(), instructions[j].GetInstructionNumber(), i, 1));
+                        dataDependences.Add(new DataDependence(pipelineType, (InstructionType) instructions[j].GetInstructionType(), (InstructionType) currentInstruction.GetInstructionType(), instructions[j].GetInstructionNumber(), currentInstruction.GetInstructionNumber(), 1));
                         source1Dependence = true;
                     }
                     if (!source2Dependence && instructions[j].GetDestination().Equals(currentInstruction.GetSource2())) {
-                        dataDependences.Add(new DataDependence(pipelineType, (InstructionType) instructions[j].GetInstructionType(), (InstructionType) currentInstruction.GetInstructionType(), instructions[j].GetInstructionNumber(), i, 2));
+                        dataDependences.Add(new DataDependence(pipelineType, (InstructionType) instructions[j].GetInstructionType(), (InstructionType) currentInstruction.GetInstructionType(), instructions[j].GetInstructionNumber(), currentInstruction.GetInstructionNumber(), 2));
                         source2Dependence = true;
                     }
                 }
@@ -129,8 +132,6 @@ namespace PipelineHazardDetector {
         // TODO: validate register values & offset values
         private void ParseOperands(String[] operands) {
 
-            this.destination = new DataLocation(operands[0].Trim());
-
             if (operands.Length == 2) {
                 String[] memoryLocation;
                 memoryLocation = operands[1].Split(new[] {'(', ')'}, StringSplitOptions.RemoveEmptyEntries);
@@ -138,9 +139,17 @@ namespace PipelineHazardDetector {
                     this.instructionType = InstructionType.invalid;
                     return;
                 }
-                this.source1 = new DataLocation(memoryLocation[1].Trim(), memoryLocation[0].Trim());
-                this.source2 = new DataLocation("0");
+                if (this.instructionType == InstructionType.load) {
+                    this.destination = new DataLocation(operands[0].Trim());
+                    this.source1 = new DataLocation(memoryLocation[1].Trim(), memoryLocation[0].Trim());
+                    this.source2 = new DataLocation("N/A");
+                } else if (this.instructionType == InstructionType.store) {
+                    this.destination = new DataLocation(memoryLocation[1].Trim(), memoryLocation[0].Trim());
+                    this.source1 = new DataLocation(operands[0].Trim());
+                    this.source2 = new DataLocation("N/A");
+                }
             } else if (operands.Length == 3) {
+                this.destination = new DataLocation(operands[0].Trim());
                 this.source1 = new DataLocation(operands[1].Trim());
                 this.source2 = new DataLocation(operands[2].Trim());
             }
@@ -171,18 +180,18 @@ namespace PipelineHazardDetector {
 
     public class DataLocation { // register or memory
 
-        DataType type;
+        DataType dataType;
         String register;
         String offset;
 
         public DataLocation(String register) { // register
-            this.type = DataType.register;
+            this.dataType = DataType.register;
             this.register = register;
             this.offset = "N/A";
         }
 
         public DataLocation(String register, String offset) { // memory location
-            this.type = DataType.memory;
+            this.dataType = DataType.memory;
             this.register = register;
             this.offset = offset;
         }
@@ -190,6 +199,18 @@ namespace PipelineHazardDetector {
         public override bool Equals(object obj) {
             DataLocation other = (DataLocation) obj;
             return (this.register.Equals(other.register)) && (this.offset == other.offset);
+        }
+
+        public DataType GetDataType() {
+            return this.dataType;
+        }
+
+        public String GetRegister() {
+            return this.register;
+        }
+
+        public String GetOffset() {
+            return this.offset;
         }
     }
 
@@ -290,7 +311,8 @@ namespace PipelineHazardDetector {
                         }
                     }
                 }
-                this.SetDataHazards(dataDependences);
+                this.dataHazards = dataDependences;
+                //this.SetDataHazards(dataDependences);
             } else if (pipelineType == 2) {
 
             } else if (pipelineType == 3) {
@@ -304,11 +326,8 @@ namespace PipelineHazardDetector {
             List<DataDependence> falseDependences = new List<DataDependence>();
 
             foreach (DataDependence dataDependence in dataDependences) {
-                Console.WriteLine("Data Dependence Earlier Instruction: " + dataDependence.GetEarlierInstructionNumber() + ", " + dataDependence.GetDataAvailableAtStage());
-                Console.WriteLine("Data Dependence Later Instruction: " + dataDependence.GetLaterInstructionNumber() + ", " + dataDependence.GetDataNeededAtStage());
                 int dataAvailableAtEndOfClockCycle = pipelinedInstructions[dataDependence.GetEarlierInstructionNumber() - 1, dataDependence.GetDataAvailableAtStage() - 1];
                 int dataNeededAtBeginningOfClockCycle = pipelinedInstructions[dataDependence.GetLaterInstructionNumber() - 1, dataDependence.GetDataNeededAtStage() - 1];
-                Console.WriteLine(dataNeededAtBeginningOfClockCycle + " > " + dataAvailableAtEndOfClockCycle + " ?");
                 if (dataNeededAtBeginningOfClockCycle > dataAvailableAtEndOfClockCycle) {
                     falseDependences.Add(dataDependence);
                 }
