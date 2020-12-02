@@ -12,7 +12,7 @@
         <Button Content="Display Without Forwarding" HorizontalAlignment="Left" Margin="800,460,0,0" VerticalAlignment="Top" Width="240" Height="30" FontSize="18" Click="DisplayWithoutForwardingOnClick"/>
         <Button Content="Display With Forwarding" HorizontalAlignment="Left" Margin="800,500,0,0" VerticalAlignment="Top" Width="240" Height="30" FontSize="18" Click="DisplayWithForwardingOnClick"/>
         <Grid Name="PipelineDisplay" HorizontalAlignment="Left" Height="365" Width="1160" Margin="15,20,0,0" VerticalAlignment="Top">
-            
+
             <Label Content="Instructions:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18" FontWeight="Bold"/>
             <Label Name="Instruction1"  Content="" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
             <Label Name="Instruction2" Content="" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
@@ -21,7 +21,7 @@
             <Label Name="Instruction5" Content="" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
             <Label Name="Instruction6" Content="" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
             <Label Name="Instruction7" Content="" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Height="35" Width="150" FontSize="18"/>
-            
+
             <Label Content="Clock Cycles:" HorizontalAlignment="Left" Margin="600,5,0,0" VerticalAlignment="Top" Height="35" Width="120" FontSize="18" FontWeight="Bold"/>
             <Label Content=" 1" HorizontalAlignment="Left" Margin="200,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
             <Label Content=" 2" HorizontalAlignment="Left" Margin="240,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
@@ -72,7 +72,7 @@
             <Label Name="A22" Content="" HorizontalAlignment="Left" Margin="1040,80,0,0" VerticalAlignment="Top" FontSize="18"/>
             <Label Name="A23" Content="" HorizontalAlignment="Left" Margin="1080,80,0,0" VerticalAlignment="Top" FontSize="18"/>
             <Label Name="A24" Content="" HorizontalAlignment="Left" Margin="1120,80,0,0" VerticalAlignment="Top" FontSize="18"/>
-            
+
             <Label Name="B1" Content="" HorizontalAlignment="Left" Margin="200,120,0,0" VerticalAlignment="Top" FontSize="18"/>
             <Label Name="B2" Content="" HorizontalAlignment="Left" Margin="240,120,0,0" VerticalAlignment="Top" FontSize="18"/>
             <Label Name="B3" Content="" HorizontalAlignment="Left" Margin="280,120,0,0" VerticalAlignment="Top" FontSize="18"/>
@@ -224,5 +224,974 @@
             <Label Name="G24" Content="" HorizontalAlignment="Left" Margin="1120,320,0,0" VerticalAlignment="Top" FontSize="18"/>
 
         </Grid>
+
+        <Path Name="L1R2_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-210, 100, 800, 390" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L1R3_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="75" Height="15" Margin="-210, 100, 800, 355" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="55"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L1R2_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-185, 100, 800, 390" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L1R3_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="100" Height="15" Margin="-175, 100, 800, 355" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="35"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L1L2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-205, 100, 800, 390" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L1L3" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="80" Height="15" Margin="-210, 100, 800, 355" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="50"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L1S2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="20" Height="15" Margin="-250, 100, 800, 390" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L1S3" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="60" Height="15" Margin="-250, 100, 800, 355" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R1R2_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-200, 100, 800, 390" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R1R3_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="65" Height="15" Margin="-200, 100, 800, 355" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="65"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R1R2_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-160, 100, 800, 390" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R1R3_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="80" Height="15" Margin="-160, 100, 800, 355" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R1L2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-200, 100, 800, 390" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R1L3" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-200, 100, 800, 355" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="60"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R1S2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="25" Height="15" Margin="-250, 100, 800, 390" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="110"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R1S3" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="60" Height="15" Margin="-250, 100, 800, 355" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="100"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L2R3_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-210, 100, 800, 310" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L2R4_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="75" Height="15" Margin="-210, 100, 800, 275" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="55"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L2R3_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-185, 100, 800, 310" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L2R4_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="100" Height="15" Margin="-175, 100, 800, 275" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="35"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L2L3" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-205, 100, 800, 310" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L2L4" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="80" Height="15" Margin="-210, 100, 800, 275" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="50"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L2S3" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="20" Height="15" Margin="-250, 100, 800, 310" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L2S4" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="60" Height="15" Margin="-250, 100, 800, 275" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R2R3_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-200, 100, 800, 310" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R2R4_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="65" Height="15" Margin="-200, 100, 800, 275" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="65"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R2R3_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-160, 100, 800, 310" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R2R4_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="80" Height="15" Margin="-160, 100, 800, 275" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R2L3" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-200, 100, 800, 310" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R2L4" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-200, 100, 800, 275" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="60"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R2S3" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="25" Height="15" Margin="-250, 100, 800, 310" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="110"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R2S4" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="60" Height="15" Margin="-250, 100, 800, 275" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="100"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L3R4_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-210, 100, 800, 230" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L3R5_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="75" Height="15" Margin="-210, 100, 800, 195" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="55"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L3R4_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-185, 100, 800, 230" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L3R5_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="100" Height="15" Margin="-175, 100, 800, 195" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="35"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L3L4" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-205, 100, 800, 230" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L3L5" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="80" Height="15" Margin="-210, 100, 800, 195" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="50"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L3S4" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="20" Height="15" Margin="-250, 100, 800, 230" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L3S5" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="60" Height="15" Margin="-250, 100, 800, 195" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R3R4_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-200, 100, 800, 230" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R3R5_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="65" Height="15" Margin="-200, 100, 800, 195" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="65"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R3R4_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-160, 100, 800, 230" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R3R5_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="80" Height="15" Margin="-160, 100, 800, 195" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R3L4" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-200, 100, 800, 230" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R3L5" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-200, 100, 800, 195" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="60"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R3S4" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="25" Height="15" Margin="-250, 100, 800, 230" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="110"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R3S5" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="60" Height="15" Margin="-250, 100, 800, 195" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="100"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L4R5_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-210, 100, 800, 150" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L4R6_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="75" Height="15" Margin="-210, 100, 800, 115" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="55"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L4R5_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-185, 100, 800, 150" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L4R6_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="100" Height="15" Margin="-175, 100, 800, 115" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="35"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L4L5" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-205, 100, 800, 150" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L4L6" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="80" Height="15" Margin="-210, 100, 800, 115" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="50"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L4S5" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="20" Height="15" Margin="-250, 100, 800, 150" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L4S6" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="60" Height="15" Margin="-250, 100, 800, 115" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R4R5_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-200, 100, 800, 150" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R4R6_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="65" Height="15" Margin="-200, 100, 800, 115" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="65"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R4R5_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-160, 100, 800, 150" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R4R6_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="80" Height="15" Margin="-160, 100, 800, 115" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R4L5" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-200, 100, 800, 150" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R4L6" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-200, 100, 800, 115" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="60"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R4S5" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="25" Height="15" Margin="-250, 100, 800, 150" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="110"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R4S6" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="60" Height="15" Margin="-250, 100, 800, 115" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="100"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L5R6_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-210, 100, 800, 70" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L5R7_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="75" Height="15" Margin="-210, 100, 800, 35" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="55"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L5R6_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-185, 100, 800, 70" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L5R7_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="100" Height="15" Margin="-175, 100, 800, 35" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="35"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L5L6" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-205, 100, 800, 70" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L5L7" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="80" Height="15" Margin="-210, 100, 800, 35" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="50"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L5S6" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="20" Height="15" Margin="-250, 100, 800, 70" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L5S7" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="60" Height="15" Margin="-250, 100, 800, 35" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R5R6_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-200, 100, 800, 70" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R5R7_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="65" Height="15" Margin="-200, 100, 800, 35" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="65"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R5R6_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-160, 100, 800, 70" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R5R7_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="80" Height="15" Margin="-160, 100, 800, 35" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R5L6" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-200, 100, 800, 70" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R5L7" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-200, 100, 800, 35" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="60"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R5S6" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="25" Height="15" Margin="-250, 100, 800, 70" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="110"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R5S7" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="60" Height="15" Margin="-250, 100, 800, 35" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="100"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L6R7_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-210, 100, 800, -10" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L6R7_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-185, 100, 800, -10" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L6L7" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-205, 100, 800, -10" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="L6S7" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="20" Height="15" Margin="-250, 100, 800, -10" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R6R7_1" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="40" Height="15" Margin="-200, 100, 800, -10" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R6R7_2" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="70" Height="15" Margin="-160, 100, 800, -10" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R6L7" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="50" Height="15" Margin="-200, 100, 800, -10" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path Name="R6S7" Stretch="Fill" Fill="Red" Data="M 0 115 110 115 80 90 100 95 120 120 100 145 80 150 110 125 0 125 Z" HorizontalAlignment="Center" Width="25" Height="15" Margin="-250, 100, 800, -10" RenderTransformOrigin="0.5, 0.5" Visibility="Collapsed">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="110"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
     </Grid>
 </Window>

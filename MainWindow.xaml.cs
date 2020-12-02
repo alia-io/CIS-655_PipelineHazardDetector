@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,16 +15,42 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PipelineHazardDetector {
+
+    // from https://melodiouscode.net/wpf-xaml-visibility-binding-with-property-value-comparison/
+    [ValueConversion(typeof(bool), typeof(Visibility))]
+    public class ComparisonToVisibleConverter : IValueConverter {
+        
+        #region interface implementations
+
+	    public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
+		    try {
+			    string inputParameter = parameter?.ToString() ?? "";
+			    IEnumerable<string> paramList = inputParameter.Contains("||") ? inputParameter.Split(new[] {"||"}, StringSplitOptions.None) : new[] {inputParameter};
+			    return paramList.Any(param => string.Equals(value?.ToString(), param)) ? Visibility.Visible : Visibility.Collapsed;
+		    } catch {
+			    return Visibility.Visible;
+		    }
+	    }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
+		    return value?.ToString() != Visibility.Collapsed.ToString();
+	    }
+
+        #endregion
+    }
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
 
         private List<Label> labels = new List<Label>();
+        private List<Path> arrows = new List<Path>();
 
         public MainWindow() {
             InitializeComponent();
             InitializeLabelsList();
+            InitializeArrowsList();
         }
 
         private void DisplayWithHazardsOnClick(object sender, RoutedEventArgs e) {
@@ -31,6 +58,10 @@ namespace PipelineHazardDetector {
             Pipeline pipeline = App.ParseInstructions(instructionSequence, 1);
             String[] instructionArray = pipeline.GetInstructionArray();
             int[,] pipelinedInstructions = pipeline.GetPipelinedInstructions();
+            List<DataDependence> dataHazards = pipeline.GetDataHazards();
+
+            // TODO: hide all arrows
+            // TODO: remove all text from instructions & pipeline area
 
             for (int i = 0; i < 7; i++) {
 
@@ -48,8 +79,7 @@ namespace PipelineHazardDetector {
 
                 for (int j = 0; j < 5; j++) {
                     if (pipelinedInstructions[i, j] != 0) {
-                        String labelName = ConvertToLabelName(i + 1, pipelinedInstructions[i, j]);
-                        Label label = FindLabel(labelName);
+                        Label label = FindLabel(ConvertToLabelName(i + 1, pipelinedInstructions[i, j]));
                         if (label != null) {
                             switch (j) {
                                 case 0: label.Content = " IF"; break;
@@ -63,6 +93,14 @@ namespace PipelineHazardDetector {
                 }
 
             }
+
+            foreach (DataDependence dataHazard in dataHazards) {
+                Path arrow = FindArrow(ConvertToArrowName(dataHazard.GetEarlierInstructionNumber(), dataHazard.GetLaterInstructionNumber(), dataHazard.GetEarlierInstructionType(), dataHazard.GetLaterInstructionType(), dataHazard.GetSourceRegisterNumber()));
+                if (arrow != null) {
+                    arrow.Visibility = Visibility.Visible;
+                }
+            }
+
         }
 
         private void DisplayWithoutForwardingOnClick(object sender, RoutedEventArgs e) {
@@ -105,6 +143,47 @@ namespace PipelineHazardDetector {
             foreach (Label label in labels) {
                 if (label.Name.Equals(name)) {
                     return label;
+                }
+            }
+            return null;
+        }
+
+        private String ConvertToArrowName(int firstInstructionNumber, int secondInstructionNumber, InstructionType firstInstructionType, InstructionType secondInstructionType, int sourceNumber) {
+
+            String arrowName = "";
+
+            switch (firstInstructionType) {
+                case InstructionType.load:
+                    arrowName = arrowName + "L";
+                    break;
+                case InstructionType.add:
+                case InstructionType.sub:
+                    arrowName = arrowName + "R";
+                    break;
+            }
+
+            arrowName = arrowName + firstInstructionNumber;
+
+            switch (secondInstructionType) {
+                case InstructionType.load:
+                    arrowName = arrowName + "L" + secondInstructionNumber;
+                    break;
+                case InstructionType.store:
+                    arrowName = arrowName + "S" + secondInstructionNumber;
+                    break;
+                case InstructionType.add:
+                case InstructionType.sub:
+                    arrowName = arrowName + "R" + secondInstructionNumber + "_" + sourceNumber;
+                    break;
+            }
+
+            return arrowName;
+        }
+
+        private Path FindArrow(String name) {
+            foreach (Path arrow in arrows) {
+                if (arrow.Name.Equals(name)) {
+                    return arrow;
                 }
             }
             return null;
@@ -285,6 +364,102 @@ namespace PipelineHazardDetector {
             labels.Add(G22);
             labels.Add(G23);
             labels.Add(G24);
+        }
+
+        private void InitializeArrowsList() {
+            arrows.Add(L1R2_1);
+            arrows.Add(L1R3_1);
+            arrows.Add(L1R2_2);
+            arrows.Add(L1R3_2);
+            arrows.Add(L1L2);
+            arrows.Add(L1L3);
+            arrows.Add(L1S2);
+            arrows.Add(L1S3);
+            arrows.Add(R1R2_1);
+            arrows.Add(R1R3_1);
+            arrows.Add(R1R2_2);
+            arrows.Add(R1R3_2);
+            arrows.Add(R1L2);
+            arrows.Add(R1L3);
+            arrows.Add(R1S2);
+            arrows.Add(R1S3);
+
+            arrows.Add(L2R3_1);
+            arrows.Add(L2R4_1);
+            arrows.Add(L2R3_2);
+            arrows.Add(L2R4_2);
+            arrows.Add(L2L3);
+            arrows.Add(L2L4);
+            arrows.Add(L2S3);
+            arrows.Add(L2S4);
+            arrows.Add(R2R3_1);
+            arrows.Add(R2R4_1);
+            arrows.Add(R2R3_2);
+            arrows.Add(R2R4_2);
+            arrows.Add(R2L3);
+            arrows.Add(R2L4);
+            arrows.Add(R2S3);
+            arrows.Add(R2S4);
+
+            arrows.Add(L3R4_1);
+            arrows.Add(L3R5_1);
+            arrows.Add(L3R4_2);
+            arrows.Add(L3R5_2);
+            arrows.Add(L3L4);
+            arrows.Add(L3L5);
+            arrows.Add(L3S4);
+            arrows.Add(L3S5);
+            arrows.Add(R3R4_1);
+            arrows.Add(R3R5_1);
+            arrows.Add(R3R4_2);
+            arrows.Add(R3R5_2);
+            arrows.Add(R3L4);
+            arrows.Add(R3L5);
+            arrows.Add(R3S4);
+            arrows.Add(R3S5);
+
+            arrows.Add(L4R5_1);
+            arrows.Add(L4R6_1);
+            arrows.Add(L4R5_2);
+            arrows.Add(L4R6_2);
+            arrows.Add(L4L5);
+            arrows.Add(L4L6);
+            arrows.Add(L4S5);
+            arrows.Add(L4S6);
+            arrows.Add(R4R5_1);
+            arrows.Add(R4R6_1);
+            arrows.Add(R4R5_2);
+            arrows.Add(R4R6_2);
+            arrows.Add(R4L5);
+            arrows.Add(R4L6);
+            arrows.Add(R4S5);
+            arrows.Add(R4S6);
+
+            arrows.Add(L5R6_1);
+            arrows.Add(L5R7_1);
+            arrows.Add(L5R6_2);
+            arrows.Add(L5R7_2);
+            arrows.Add(L5L6);
+            arrows.Add(L5L7);
+            arrows.Add(L5S6);
+            arrows.Add(L5S7);
+            arrows.Add(R5R6_1);
+            arrows.Add(R5R7_1);
+            arrows.Add(R5R6_2);
+            arrows.Add(R5R7_2);
+            arrows.Add(R5L6);
+            arrows.Add(R5L7);
+            arrows.Add(R5S6);
+            arrows.Add(R5S7);
+
+            arrows.Add(L6R7_1);
+            arrows.Add(L6R7_2);
+            arrows.Add(L6L7);
+            arrows.Add(L6S7);
+            arrows.Add(R6R7_1);
+            arrows.Add(R6R7_2);
+            arrows.Add(R6L7);
+            arrows.Add(R6S7);
         }
 
     }
