@@ -31,14 +31,14 @@ namespace PipelineHazardDetector {
         }
 
         private void DisplayWithHazardsOnClick(object sender, RoutedEventArgs e) {
+            
             String instructionSequence = InstructionSequence.Text;
             Pipeline pipeline = App.ParseInstructions(instructionSequence, 1);
             String[] instructionArray = pipeline.GetInstructionArray();
             int[,] pipelinedInstructions = pipeline.GetPipelinedInstructions();
             List<DataDependence> dataHazards = pipeline.GetDataHazards();
 
-            // TODO: hide all arrows
-            // TODO: remove all text from instructions & pipeline area
+            ClearAllContent();
 
             for (int i = 0; i < 7; i++) {
 
@@ -94,6 +94,24 @@ namespace PipelineHazardDetector {
             String instructionSequence = InstructionSequence.Text;
             App.ParseInstructions(instructionSequence, 3);
             //MessageBox.Show("Display With Forwarding: " + instructionSequence);
+        }
+
+        private void ClearAllContent() {
+            Instruction1.Content = "";
+            Instruction2.Content = "";
+            Instruction3.Content = "";
+            Instruction4.Content = "";
+            Instruction5.Content = "";
+            Instruction6.Content = "";
+            Instruction7.Content = "";
+
+            foreach (Label label in labels) {
+                label.Content = "";
+            }
+
+            foreach (Path arrow in arrows) {
+                arrow.Visibility = Visibility.Collapsed;
+            }
         }
 
         private String ConvertToLabelName(int instructionNumber, int cycleNumber) {
