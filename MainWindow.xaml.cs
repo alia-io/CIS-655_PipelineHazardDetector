@@ -81,19 +81,135 @@ namespace PipelineHazardDetector {
         }
 
         private void DisplayWithoutForwardingOnClick(object sender, RoutedEventArgs e) {
+
             String instructionSequence = InstructionSequence.Text;
-            App.ParseInstructions(instructionSequence, 2);
-            //A01.Content = "Test";
-            //TextBox textBox = new TextBox();
-            //textBox.Text = "Test";
-            //PipelineDisplay.Children.Add(textBox);
-            //MessageBox.Show("Display Without Forwarding: " + instructionSequence);
+            Pipeline pipeline = App.ParseInstructions(instructionSequence, 2);
+            String[] instructionArray = pipeline.GetInstructionArray();
+            int[,] pipelinedInstructions = pipeline.GetPipelinedInstructions();
+            List<DataDependence> dataHazards = pipeline.GetDataHazards();
+            Label label = null;
+            int lastClockCycle = 0;
+            int currentClockCycle;
+
+            ClearAllContent();
+
+            for (int i = 0; i < 7; i++) {
+
+                if (i < instructionArray.Length) {
+                    switch (i) {
+                        case 0: Instruction1.Content = instructionArray[i]; break;
+                        case 1: Instruction2.Content = instructionArray[i]; break;
+                        case 2: Instruction3.Content = instructionArray[i]; break;
+                        case 3: Instruction4.Content = instructionArray[i]; break;
+                        case 4: Instruction5.Content = instructionArray[i]; break;
+                        case 5: Instruction6.Content = instructionArray[i]; break;
+                        case 6: Instruction7.Content = instructionArray[i]; break;
+                    }
+                }
+
+                for (int j = 0; j < 5; j++) {
+                    currentClockCycle = pipelinedInstructions[i, j];
+                    if (currentClockCycle != 0) {
+                        
+                        // add stall cycles when necessary
+                        if (currentClockCycle - lastClockCycle != 1) {
+                            for (int k = lastClockCycle + 1; k < currentClockCycle; k++) {
+                                label = FindLabel(ConvertToLabelName(i + 1, k));
+                                if (label != null) {
+                                    label.Content = " S";
+                                }
+                            }
+                        }
+
+                        label = FindLabel(ConvertToLabelName(i + 1, currentClockCycle));
+                        if (label != null) {
+                            switch (j) {
+                                case 0: label.Content = " IF"; break;
+                                case 1: label.Content = "ID"; break;
+                                case 2: label.Content = "EX"; break;
+                                case 3: label.Content = " M"; break;
+                                case 4: label.Content = "WB"; break;
+                            }
+                        }
+                        lastClockCycle = currentClockCycle;
+                    }
+                }
+
+            }
+
+            foreach (DataDependence dataHazard in dataHazards) {
+                Path arrow = FindArrow(ConvertToArrowName(dataHazard.GetEarlierInstructionNumber(), dataHazard.GetLaterInstructionNumber(), dataHazard.GetEarlierInstructionType(), dataHazard.GetLaterInstructionType(), dataHazard.GetSourceRegisterNumber()));
+                if (arrow != null) {
+                    arrow.Visibility = Visibility.Visible;
+                }
+            }
+
         }
 
         private void DisplayWithForwardingOnClick(object sender, RoutedEventArgs e) {
+
             String instructionSequence = InstructionSequence.Text;
-            App.ParseInstructions(instructionSequence, 3);
-            //MessageBox.Show("Display With Forwarding: " + instructionSequence);
+            Pipeline pipeline = App.ParseInstructions(instructionSequence, 3);
+            String[] instructionArray = pipeline.GetInstructionArray();
+            int[,] pipelinedInstructions = pipeline.GetPipelinedInstructions();
+            List<DataDependence> dataHazards = pipeline.GetDataHazards();
+            Label label = null;
+            int lastClockCycle = 0;
+            int currentClockCycle;
+
+            ClearAllContent();
+
+            for (int i = 0; i < 7; i++) {
+
+                if (i < instructionArray.Length) {
+                    switch (i) {
+                        case 0: Instruction1.Content = instructionArray[i]; break;
+                        case 1: Instruction2.Content = instructionArray[i]; break;
+                        case 2: Instruction3.Content = instructionArray[i]; break;
+                        case 3: Instruction4.Content = instructionArray[i]; break;
+                        case 4: Instruction5.Content = instructionArray[i]; break;
+                        case 5: Instruction6.Content = instructionArray[i]; break;
+                        case 6: Instruction7.Content = instructionArray[i]; break;
+                    }
+                }
+
+                for (int j = 0; j < 5; j++) {
+                    currentClockCycle = pipelinedInstructions[i, j];
+                    if (currentClockCycle != 0) {
+
+                        // add stall cycles when necessary
+                        if (currentClockCycle - lastClockCycle != 1) {
+                            for (int k = lastClockCycle + 1; k < currentClockCycle; k++) {
+                                label = FindLabel(ConvertToLabelName(i + 1, k));
+                                if (label != null) {
+                                    label.Content = " S";
+                                }
+                            }
+                        }
+
+                        label = FindLabel(ConvertToLabelName(i + 1, currentClockCycle));
+                        if (label != null) {
+                            switch (j) {
+                                case 0: label.Content = " IF"; break;
+                                case 1: label.Content = "ID"; break;
+                                case 2: label.Content = "EX"; break;
+                                case 3: label.Content = " M"; break;
+                                case 4: label.Content = "WB"; break;
+                            }
+                        }
+                        lastClockCycle = currentClockCycle;
+                    }
+                }
+
+            }
+
+            foreach (DataDependence dataHazard in dataHazards) {
+                Path arrow = FindArrow(ConvertToArrowName(dataHazard.GetEarlierInstructionNumber(), dataHazard.GetLaterInstructionNumber(), dataHazard.GetEarlierInstructionType(), dataHazard.GetLaterInstructionType(), dataHazard.GetSourceRegisterNumber()));
+                if (arrow != null) {
+                    arrow.Visibility = Visibility.Visible;
+                }
+            }
+
         }
 
         private void ClearAllContent() {

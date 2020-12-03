@@ -31,14 +31,18 @@ namespace PipelineHazardDetector {
 
             // create instructions and put them in the list
             for (int i = 0; i < instructionArray.Length; i++) {
+                
                 Instruction currentInstruction = new Instruction(instructionArray[i], i + 1);
+
                 if ((InstructionType) currentInstruction.GetInstructionType() == InstructionType.invalid) {
                     continue; // skip the invalid instruction
                 }
-                // check previous instructions for data dependences
+
+                // check previous two instructions for data dependences
                 bool source1Dependence = false;
                 bool source2Dependence = false;
-                for (int j = instructions.Count - 1; j >= 0; j--) {
+
+                for (int j = instructions.Count - 1; j >= 0 && j >= instructions.Count - 2; j--) {
                     if ((InstructionType) instructions[j].GetInstructionType() == InstructionType.store) { // no hazards with store
                         continue;
                     }
@@ -51,6 +55,7 @@ namespace PipelineHazardDetector {
                         source2Dependence = true;
                     }
                 }
+
                 instructions.Add(currentInstruction); // add instruction to parsed instructions list
             }
 
@@ -295,49 +300,79 @@ namespace PipelineHazardDetector {
             int instructionStart;
 
             this.instructionArray = instructionArray;
+            instructionStart = 0;
 
-            if (pipelineType == 1) {
-                instructionStart = 0;
-                for (int i = 0; i < 7; i++) {
-                    instructionStart++;
-                    if (i < instructions.Count) {
-                        for (int j = 0; j < 5; j++) {
-                            pipelinedInstructions[i, j] = instructionStart + j;
-                        }
-                    }
-                    else {
-                        for (int j = 0; j < 5; j++) {
-                            pipelinedInstructions[i, j] = 0;
-                        }
+            for (int i = 0; i < 7; i++) {
+                instructionStart++;
+                if (i < instructions.Count) {
+                    for (int j = 0; j < 5; j++) {
+                        pipelinedInstructions[i, j] = instructionStart + j;
                     }
                 }
-                this.dataHazards = dataDependences;
-                //this.SetDataHazards(dataDependences);
-            } else if (pipelineType == 2) {
-
-            } else if (pipelineType == 3) {
-
-            }
-
-        }
-
-        private void SetDataHazards(List<DataDependence> dataDependences) {
-
-            List<DataDependence> falseDependences = new List<DataDependence>();
-
-            foreach (DataDependence dataDependence in dataDependences) {
-                int dataAvailableAtEndOfClockCycle = pipelinedInstructions[dataDependence.GetEarlierInstructionNumber() - 1, dataDependence.GetDataAvailableAtStage() - 1];
-                int dataNeededAtBeginningOfClockCycle = pipelinedInstructions[dataDependence.GetLaterInstructionNumber() - 1, dataDependence.GetDataNeededAtStage() - 1];
-                if (dataNeededAtBeginningOfClockCycle > dataAvailableAtEndOfClockCycle) {
-                    falseDependences.Add(dataDependence);
+                else {
+                    for (int j = 0; j < 5; j++) {
+                        pipelinedInstructions[i, j] = 0;
+                    }
                 }
-            }
-
-            foreach (DataDependence falseDependence in falseDependences) {
-                dataDependences.Remove(falseDependence);
             }
 
             this.dataHazards = dataDependences;
+
+            if (pipelineType != 1) {
+
+                foreach (DataDependence hazard in this.dataHazards) {
+
+                    instructionStart = pipelinedInstructions[hazard.GetLaterInstructionNumber(), 0];
+
+                    if (hazard.GetLaterInstructionNumber() - hazard.GetEarlierInstructionNumber() == 1) {
+                        if (pipelineType == 2) {
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 1] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 1] + 2;
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 2] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 2] + 2;
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 3] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 3] + 2;
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 4] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 4] + 2;
+                            for (int i = hazard.GetLaterInstructionNumber(); i < pipelinedInstructions.GetLength(0); i++) {
+                                for (int j = 0; j < pipelinedInstructions.GetLength(1); j++) {
+                                    if (pipelinedInstructions[i, j] != 0) {
+                                        pipelinedInstructions[i, j] = pipelinedInstructions[i, j] + 2;
+                                    }
+                                }
+                            }
+
+                        } else if (pipelineType == 3) {
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 1] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 1] + 1;
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 2] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 2] + 1;
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 3] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 3] + 1;
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 4] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 4] + 1;
+                            for (int i = hazard.GetLaterInstructionNumber(); i < pipelinedInstructions.GetLength(0); i++) {
+                                for (int j = 0; j < pipelinedInstructions.GetLength(1); j++) {
+                                    if (pipelinedInstructions[i, j] != 0) {
+                                        pipelinedInstructions[i, j] = pipelinedInstructions[i, j] + 1;
+                                    }
+                                }
+                            }
+
+                        }
+
+                    } else if (hazard.GetLaterInstructionNumber() - hazard.GetEarlierInstructionNumber() == 2) {
+                        if (pipelineType == 2) {
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 1] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 1] + 1;
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 2] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 2] + 1;
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 3] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 3] + 1;
+                            pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 4] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 4] + 1;
+                            for (int i = hazard.GetLaterInstructionNumber(); i < pipelinedInstructions.GetLength(0); i++) {
+                                for (int j = 0; j < pipelinedInstructions.GetLength(1); j++) {
+                                    if (pipelinedInstructions[i, j] != 0) {
+                                        pipelinedInstructions[i, j] = pipelinedInstructions[i, j] + 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
         }
 
         public String[] GetInstructionArray() {
