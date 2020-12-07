@@ -335,6 +335,9 @@ namespace PipelineHazardDetector {
                             }
 
                         } else if (pipelineType == 3) {
+                            if (hazard.GetLaterInstructionType() == InstructionType.store) { // no hazards with forwarding unit and a store
+                                continue;
+                            }
                             pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 1] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 1] + 1;
                             pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 2] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 2] + 1;
                             pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 3] = pipelinedInstructions[hazard.GetLaterInstructionNumber() - 1, 3] + 1;
