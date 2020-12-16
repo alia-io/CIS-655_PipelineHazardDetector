@@ -7,7 +7,7 @@ namespace PipelineHazardDetector {
     public enum DataType { register, memory }
     public enum InstructionType { invalid, add, sub, load, store }
     public enum PipelineStage { STALL, IF, ID, EX, MEM, WB }
-    //enum Registers { zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7, s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1, gp, fp, ra }
+    
 
     /// <summary>
     /// Interaction logic for App.xaml
@@ -45,6 +45,12 @@ namespace PipelineHazardDetector {
                     if (!source1Dependence && instructions[j].GetDestination().Equals(currentInstruction.GetSource1())) {
                         dataDependences.Add(new DataDependence(pipelineType, (InstructionType) instructions[j].GetInstructionType(), (InstructionType) currentInstruction.GetInstructionType(), instructions[j].GetInstructionNumber(), currentInstruction.GetInstructionNumber(), 1));
                         source1Dependence = true;
+                    }
+                    if (!source1Dependence && (InstructionType)currentInstruction.GetInstructionType() == InstructionType.load) {
+                        if (currentInstruction.GetSource1().GetRegister().Equals(instructions[j].GetDestination().GetRegister())) {
+                            dataDependences.Add(new DataDependence(pipelineType, (InstructionType)instructions[j].GetInstructionType(), (InstructionType)currentInstruction.GetInstructionType(), instructions[j].GetInstructionNumber(), currentInstruction.GetInstructionNumber(), 2));
+                            source1Dependence = true;
+                        }
                     }
                     if (!source2Dependence && instructions[j].GetDestination().Equals(currentInstruction.GetSource2())) {
                         dataDependences.Add(new DataDependence(pipelineType, (InstructionType) instructions[j].GetInstructionType(), (InstructionType) currentInstruction.GetInstructionType(), instructions[j].GetInstructionNumber(), currentInstruction.GetInstructionNumber(), 2));
@@ -130,7 +136,7 @@ namespace PipelineHazardDetector {
             return instruction.Substring(typeString.Length).Trim();
         }
 
-        // TODO: validate register values & offset values
+        
         private void ParseOperands(String[] operands) {
 
             if (operands.Length == 2) {
@@ -287,8 +293,13 @@ namespace PipelineHazardDetector {
 
     public class Pipeline {
 
-        String[] instructionArray;
-        int[,] pipelinedInstructions = new int[7, 5];
+        String[] instructionArray;                      // original instruction strings
+        int[,] pipelinedInstructions = new int[7, 5];   // timing sequences for each instruction
+                                                                // the 7-member array stores one 5-member entry for each instruction
+                                                                // the numbers stored in each position of the 5-member array correspond to
+                                                                    // a clock cycle that the instruction is operated on
+                                                                    // clock cycles are stored in order,
+                                                                    // so position 0 holds the clock cycle in which the instruction is in the IF stage, etc.
         List<DataDependence> dataHazards;
 
         public Pipeline(int pipelineType, String[] instructionArray, List<Instruction> instructions, List<DataDependence> dataDependences) {
